@@ -10,6 +10,7 @@
 		437CFE5D1F22719300E6F4FA /* StaticTableViewDatasource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437CFE531F22719200E6F4FA /* StaticTableViewDatasource.framework */; };
 		437CFE621F22719300E6F4FA /* StaticTableViewDatasourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437CFE611F22719300E6F4FA /* StaticTableViewDatasourceTests.swift */; };
 		437CFE641F22719300E6F4FA /* StaticTableViewDatasource.h in Headers */ = {isa = PBXBuildFile; fileRef = 437CFE561F22719200E6F4FA /* StaticTableViewDatasource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		437CFE701F2271CB00E6F4FA /* StaticTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437CFE6F1F2271CB00E6F4FA /* StaticTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		437CFE5C1F22719300E6F4FA /* StaticTableViewDatasourceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StaticTableViewDatasourceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		437CFE611F22719300E6F4FA /* StaticTableViewDatasourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticTableViewDatasourceTests.swift; sourceTree = "<group>"; };
 		437CFE631F22719300E6F4FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		437CFE6F1F2271CB00E6F4FA /* StaticTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		437CFE551F22719200E6F4FA /* StaticTableViewDatasource */ = {
 			isa = PBXGroup;
 			children = (
+				437CFE6F1F2271CB00E6F4FA /* StaticTableViewDataSource.swift */,
 				437CFE561F22719200E6F4FA /* StaticTableViewDatasource.h */,
 				437CFE571F22719200E6F4FA /* Info.plist */,
 			);
@@ -149,6 +152,7 @@
 					437CFE521F22719200E6F4FA = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = MXEPMTL3DP;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					437CFE5B1F22719300E6F4FA = {
@@ -198,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				437CFE701F2271CB00E6F4FA /* StaticTableViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +329,7 @@
 		437CFE681F22719300E6F4FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = MXEPMTL3DP;
@@ -336,6 +342,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.GlobalMobile.StaticTableViewDatasource;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -343,6 +350,7 @@
 		437CFE691F22719300E6F4FA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = MXEPMTL3DP;
@@ -362,6 +370,7 @@
 		437CFE6B1F22719300E6F4FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = MXEPMTL3DP;
 				INFOPLIST_FILE = StaticTableViewDatasourceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -374,6 +383,7 @@
 		437CFE6C1F22719300E6F4FA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = MXEPMTL3DP;
 				INFOPLIST_FILE = StaticTableViewDatasourceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
