@@ -31,9 +31,9 @@ pod StaticTableViewDatasource
 
  ```
  section.addCell({
- 		let cell = UITableViewCell()
-    	cell.textLabel?.text = "This cell has no action associated with it"
-    	return cell
+     let cell = UITableViewCell()
+     cell.textLabel?.text = "This cell has no action associated with it"
+     return cell
 })
 ```
 
@@ -41,36 +41,36 @@ pod StaticTableViewDatasource
 
  ```
 section.addCell({
-		let cell = UITableViewCell()
-    	cell.textLabel?.text = "This cell has an action associated with it"
-    	return cell
+    let cell = UITableViewCell()
+    cell.textLabel?.text = "This cell has an action associated with it"
+    return cell
 }, didSelect: { 
-    	print("Cell Selected")
+    print("Cell Selected")
 })
 ```
 
 ### Example
 ```
 datasource.addSection(nil) { section in
-  	section.addCell({
+  section.addCell({
     	let cell = UITableViewCell()
     	cell.textLabel?.text = "This is the First Cell"
-	  	return cell
-	})
+	return cell
+   })
 }
 
 datasource.addSection("2nd Section Title", footer: "2nd Section Footer") { section in
- 	section.addCell({
-		let cell = UITableViewCell()
+    section.addCell({
+        let cell = UITableViewCell()
      	cell.textLabel?.text = "This cell has no action associated with it"
     	return cell
- 	})
+    })
 
-	section.addCell({
-   		let cell = UITableViewCell()
-   		cell.textLabel?.text = "This cell has an action associated with it"
+    section.addCell({
+        let cell = UITableViewCell()
+   	cell.textLabel?.text = "This cell has an action associated with it"
      	return cell
-	}, didSelect: { 
+    }, didSelect: { 
     	print("Cell Selected")
     })
 }
