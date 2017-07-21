@@ -2,7 +2,14 @@
 [![Build Status](https://travis-ci.org/EcolabPestServices/StaticTableViewDatasource.svg?branch=master)](https://travis-ci.org/EcolabPestServices/StaticTableViewDatasource)
 
 ### Overview
-Quickly build static tableviews programitically for iOS
+Quickly build static tableviews programmatically for iOS
+
+### Installation
+- Via Cocoapods
+
+ ```
+pod StaticTableViewDatasource
+```
 
 ### Instructions
 - First, create an instance of a StaticTableViewDatasource
