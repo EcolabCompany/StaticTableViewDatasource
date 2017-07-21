@@ -18,6 +18,8 @@ public final class StaticTableViewDataSource: NSObject {
     public struct Section {
 
         let title: String?
+        let footer: String?
+
         fileprivate var cells: [Cell]
 
         public mutating func addCell(_ configure: () -> UITableViewCell, didSelect: (() -> ())? = nil) {
@@ -30,8 +32,8 @@ public final class StaticTableViewDataSource: NSObject {
     public var sections: [Section] = []
 
 
-    public func addSection(_ title: String?, configure: (inout Section) -> Void) {
-        var section = Section(title: title, cells: [])
+    public func addSection(_ title: String?, footer: String? = nil,  configure: (inout Section) -> Void) {
+        var section = Section(title: title, footer: footer, cells: [])
         configure(&section)
         sections.append(section)
     }
@@ -53,6 +55,11 @@ extension StaticTableViewDataSource: UITableViewDataSource {
     }
 
 
+    public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return sections[section].footer
+    }
+
+    
     public func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }

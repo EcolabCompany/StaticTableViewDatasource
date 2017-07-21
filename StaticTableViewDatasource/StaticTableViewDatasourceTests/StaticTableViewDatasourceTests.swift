@@ -33,7 +33,7 @@ class StaticTableViewDatasourceTests: XCTestCase {
             })
         }
 
-        datasource.addSection("2nd Section Title") { section in
+        datasource.addSection("2nd Section Title", footer: "2nd Section Footer") { section in
             section.addCell({
                 let cell = UITableViewCell()
                 cell.textLabel?.text = "This cell has no action associated with it"
@@ -53,11 +53,23 @@ class StaticTableViewDatasourceTests: XCTestCase {
     }
 
 
+    func test_number_of_sections() {
+        let sectionCount = datasource.numberOfSections(in: tableView)
+        XCTAssertEqual(sectionCount, 2)
+    }
+    
+
     //MARK: 1st Section Tests
 
     func test_first_section_has_no_title() {
         let title = datasource.tableView(tableView, titleForHeaderInSection: 0)
         XCTAssertNil(title)
+    }
+
+
+    func test_first_section_has_no_footer() {
+        let footer = datasource.tableView(tableView, titleForHeaderInSection: 0)
+        XCTAssertNil(footer)
     }
 
 
@@ -81,6 +93,12 @@ class StaticTableViewDatasourceTests: XCTestCase {
     }
 
 
+    func test_second_section_footer() {
+        let footer = datasource.tableView(tableView, titleForFooterInSection: 1)
+        XCTAssertEqual(footer, "2nd Section Footer")
+    }
+
+
     func test_second_section_number_of_cells() {
         let cellCount = datasource.tableView(tableView, numberOfRowsInSection: 1)
         XCTAssertEqual(cellCount, 2)
@@ -91,5 +109,5 @@ class StaticTableViewDatasourceTests: XCTestCase {
         datasource.tableView(tableView, didSelectRowAt: IndexPath(row: 1, section: 1))
         XCTAssertTrue(didSelectCell)
     }
-    
+
 }
