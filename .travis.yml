@@ -2,4 +2,4 @@ language: objective-c
 xcode_project: StaticTableViewDatasource/StaticTableViewDatasource.xcodeproj
 xcode_scheme: StaticTableViewDatasourceTests
 osx_image: xcode8
-script: script: — xcodebuild clean build -workspace StaticTableViewDatasource.xcodeproj -scheme  StaticTableViewDatasourceTests -destination “platform=iOS Simulator,name=iPhone 7”
+script: — xcodebuild clean build -workspace StaticTableViewDatasource.xcodeproj -scheme  StaticTableViewDatasourceTests -destination “platform=iOS Simulator,name=iPhone 7”
