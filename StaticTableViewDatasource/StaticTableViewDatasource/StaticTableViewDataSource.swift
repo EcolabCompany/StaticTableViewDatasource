@@ -7,7 +7,7 @@
 import Foundation
 
 
-final class StaticTableViewDataSource: NSObject {
+public final class StaticTableViewDataSource: NSObject {
 
     fileprivate struct Cell {
         let row: UITableViewCell
@@ -15,22 +15,22 @@ final class StaticTableViewDataSource: NSObject {
     }
 
 
-    struct Section {
+    public struct Section {
 
         let title: String?
         fileprivate var cells: [Cell]
 
-        mutating func addCell(_ configure: () -> UITableViewCell, didSelect: (() -> ())? = nil) {
+        public mutating func addCell(_ configure: () -> UITableViewCell, didSelect: (() -> ())? = nil) {
             let cell = Cell(row: configure(), didSelect: didSelect)
             self.cells.append(cell)
         }
     }
 
 
-    var sections: [Section] = []
+    public var sections: [Section] = []
 
 
-    func addSection(_ title: String?, configure: (inout Section) -> Void) {
+    public func addSection(_ title: String?, configure: (inout Section) -> Void) {
         var section = Section(title: title, cells: [])
         configure(&section)
         sections.append(section)
@@ -43,22 +43,22 @@ final class StaticTableViewDataSource: NSObject {
 
 extension StaticTableViewDataSource: UITableViewDataSource {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].cells.count
     }
 
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].title
     }
 
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
 
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = sections[indexPath.section]
         return section.cells[indexPath.row].row
     }
@@ -69,18 +69,18 @@ extension StaticTableViewDataSource: UITableViewDataSource {
 
 extension StaticTableViewDataSource: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = sections[indexPath.section]
         section.cells[indexPath.row].didSelect?()
     }
 
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
 
 
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
     
