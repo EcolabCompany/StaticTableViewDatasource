@@ -24,6 +24,7 @@ class StaticTableViewDatasourceTests: XCTestCase {
         //create the datasource
         datasource = StaticTableViewDataSource()
         didSelectCell = false
+
         //first add a section with no title and one cell
         datasource.addSection(nil) { section in
             section.addCell({
@@ -57,7 +58,7 @@ class StaticTableViewDatasourceTests: XCTestCase {
         let sectionCount = datasource.numberOfSections(in: tableView)
         XCTAssertEqual(sectionCount, 2)
     }
-    
+
 
     //MARK: 1st Section Tests
 
