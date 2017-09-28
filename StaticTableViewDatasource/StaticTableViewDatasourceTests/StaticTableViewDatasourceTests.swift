@@ -34,6 +34,7 @@ class StaticTableViewDatasourceTests: XCTestCase {
             })
         }
 
+        //Second, add a section with title and 2 cells
         datasource.addSection("2nd Section Title", footer: "2nd Section Footer") { section in
             section.addCell({
                 let cell = UITableViewCell()
@@ -49,6 +50,16 @@ class StaticTableViewDatasourceTests: XCTestCase {
             })
         }
 
+        //Third, add a section to test long press copy functionality
+        datasource.addSection("3rd Section Title") { section in
+            section.addCell({
+                let cell = UITableViewCell()
+                cell.textLabel?.text = "This cell has a long press copy functionality associated with it"
+                return cell
+            }, popUpCopyMenuItem: "cell copied")
+
+        }
+
         tableView.dataSource = datasource
         tableView.delegate = datasource
     }
@@ -56,7 +67,7 @@ class StaticTableViewDatasourceTests: XCTestCase {
 
     func test_number_of_sections() {
         let sectionCount = datasource.numberOfSections(in: tableView)
-        XCTAssertEqual(sectionCount, 2)
+        XCTAssertEqual(sectionCount, 3)
     }
 
 
@@ -111,4 +122,20 @@ class StaticTableViewDatasourceTests: XCTestCase {
         XCTAssertTrue(didSelectCell)
     }
 
+
+    //MARK: 3rd Section Tests
+    func test_shouldShowMenuForRowAt_indexPath_returns_true() {
+        XCTAssertTrue(datasource.tableView(tableView, shouldShowMenuForRowAt: IndexPath(row: 0, section: 2)))
+    }
+
+
+    func test_shouldShowMenuForRowAt_indexPath_returns_false() {
+        XCTAssertFalse(datasource.tableView(tableView, shouldShowMenuForRowAt: IndexPath(row: 0, section: 1)))
+    }
+
+
+    func test_text_copied_to_pastBoard() {
+        datasource.tableView(tableView, performAction: #selector(UIResponderStandardEditActions.copy(_:)), forRowAt: IndexPath(row: 0, section: 2), withSender: nil)
+        XCTAssertEqual(UIPasteboard.general.string, "cell copied")
+    }
 }

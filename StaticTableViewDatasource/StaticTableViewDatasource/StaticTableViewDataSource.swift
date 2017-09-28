@@ -12,6 +12,7 @@ public final class StaticTableViewDataSource: NSObject {
     fileprivate struct Cell {
         let row: UITableViewCell
         let didSelect: (() -> ())?
+        let popUpCopyMenuItem: String?
     }
 
 
@@ -22,8 +23,8 @@ public final class StaticTableViewDataSource: NSObject {
 
         fileprivate var cells: [Cell]
 
-        public mutating func addCell(_ configure: () -> UITableViewCell, didSelect: (() -> ())? = nil) {
-            let cell = Cell(row: configure(), didSelect: didSelect)
+        public mutating func addCell(_ configure: () -> UITableViewCell, popUpCopyMenuItem: String? = nil, didSelect: (() -> ())? = nil) {
+            let cell = Cell(row: configure(), didSelect: didSelect, popUpCopyMenuItem: popUpCopyMenuItem)
             self.cells.append(cell)
         }
     }
@@ -90,7 +91,25 @@ extension StaticTableViewDataSource: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
-    
+
+
+    public func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
+        let section = sections[indexPath.section]
+        return section.cells[indexPath.row].popUpCopyMenuItem != nil
+    }
+
+
+    public func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+        return action == #selector(UIResponderStandardEditActions.copy(_:))
+    }
+
+
+    public func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
+        let section = sections[indexPath.section]
+        let cell = section.cells[indexPath.row]
+
+        UIPasteboard.general.string = cell.popUpCopyMenuItem
+    }
 }
 
 
