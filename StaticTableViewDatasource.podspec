@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.author             = { "Nate Mann" => "nathan.mann@me.com" }
   s.social_media_url   = "https://twitter.com/NathanMann"
   s.platform     = :ios
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "11.0"
   s.source       = { :git => "https://github.com/EcolabPestServices/StaticTableViewDatasource.git", :tag => "#{s.version}" }
   s.source_files  = "StaticTableViewDatasource/StaticTableViewDatasource/*.swift"
 end
