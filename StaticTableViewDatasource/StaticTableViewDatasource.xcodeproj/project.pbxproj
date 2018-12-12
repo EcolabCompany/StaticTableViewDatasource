@@ -416,6 +416,7 @@
 				437CFE691F22719300E6F4FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		437CFE6A1F22719300E6F4FA /* Build configuration list for PBXNativeTarget "StaticTableViewDatasourceTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +425,7 @@
 				437CFE6C1F22719300E6F4FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
