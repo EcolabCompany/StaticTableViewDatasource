@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.summary      = "Create static table views in a declarative style"
   # s.description  = <<-DESC
   #                  DESC
-  s.homepage     = "https://github.com/EcolabPestServices/StaticTableViewDatasource"
+  s.homepage     = "https://github.com/EcolabCompany/StaticTableViewDatasource"
   s.license      = "MIT"
   s.author             = { "Nate Mann" => "nathan.mann@me.com" }
   s.social_media_url   = "https://twitter.com/NathanMann"
