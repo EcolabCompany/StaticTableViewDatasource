@@ -20,12 +20,25 @@ public final class StaticTableViewDataSource: NSObject {
 
         let title: String?
         let footer: String?
-
+        var footerView: UIView?
+        
+        
         fileprivate var cells: [Cell]
 
+        fileprivate init(title: String?, footer: String?, cells: [Cell]) {
+            self.title = title
+            self.footer = footer
+            self.cells = cells
+        }
+        
+        
         public mutating func addCell(_ configure: () -> UITableViewCell, popUpCopyMenuItem: String? = nil, didSelect: (() -> ())? = nil) {
             let cell = Cell(row: configure(), didSelect: didSelect, popUpCopyMenuItem: popUpCopyMenuItem)
             self.cells.append(cell)
+        }
+        
+        public mutating func addFooterView(_ view: UIView) {
+            self.footerView = view
         }
     }
 
@@ -60,6 +73,11 @@ extension StaticTableViewDataSource: UITableViewDataSource {
         return sections[section].footer
     }
 
+    
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return sections[section].footerView
+    }
+    
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
