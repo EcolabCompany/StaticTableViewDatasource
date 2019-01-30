@@ -7,9 +7,9 @@
 import Foundation
 
 
-public final class StaticTableViewDataSource: NSObject {
+public class StaticTableViewDataSource: NSObject {
 
-    fileprivate struct Cell {
+    public struct Cell {
         let row: UITableViewCell
         let didSelect: (() -> ())?
         let popUpCopyMenuItem: String?

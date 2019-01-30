@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "StaticTableViewDatasource"
-  s.version      = "1.2.3"
+  s.version      = "1.3.0"
   s.swift_version  = "4.2"
   s.summary      = "Create static table views in a declarative style"
   # s.description  = <<-DESC
