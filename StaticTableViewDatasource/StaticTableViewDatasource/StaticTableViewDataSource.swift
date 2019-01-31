@@ -4,10 +4,10 @@
 //  Copyright © 2016 Pest Elimination. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
-public class StaticTableViewDataSource: NSObject {
+open class StaticTableViewDataSource: NSObject {
 
     public struct Cell {
         let row: UITableViewCell
