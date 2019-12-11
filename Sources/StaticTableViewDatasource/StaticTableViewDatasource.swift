@@ -1,9 +1,3 @@
-//  Global Mobile
-//
-//  Created by Nathan Mann on 8/30/16.
-//  Copyright © 2016 Pest Elimination. All rights reserved.
-//
-
 import UIKit
 
 
@@ -129,5 +123,6 @@ extension StaticTableViewDataSource: UITableViewDelegate {
         UIPasteboard.general.string = cell.popUpCopyMenuItem
     }
 }
+
 
 

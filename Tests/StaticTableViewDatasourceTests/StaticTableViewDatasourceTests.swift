@@ -1,14 +1,5 @@
-//
-//  StaticTableViewDatasourceTests.swift
-//  StaticTableViewDatasourceTests
-//
-//  Created by Nathan Mann on 7/21/17.
-//  Copyright © 2017 Nate Mann. All rights reserved.
-//
-
 import XCTest
-import StaticTableViewDatasource
-
+@testable import StaticTableViewDatasource
 
 class StaticTableViewDatasourceTests: XCTestCase {
     
@@ -45,7 +36,7 @@ class StaticTableViewDatasourceTests: XCTestCase {
                 let cell = UITableViewCell()
                 cell.textLabel?.text = "This cell has an action associated with it"
                 return cell
-            }, didSelect: { 
+            }, didSelect: {
                 self.didSelectCell = true
             })
         }
