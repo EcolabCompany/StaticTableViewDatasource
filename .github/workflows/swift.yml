@@ -13,11 +13,10 @@ jobs:
     strategy:
       matrix:
         destination: ['platform=iOS Simulator, OS=13.4, name=iPhone 11']
-        xcode: ['/Applications/Xcode_11.1.app/Contents/Developer']
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
+    - name: Generate xcodeproj
+      run: swift package generate-xcodeproj
     - name: Run tests
-      run: swift test -v
+      run: xcodebuild test -destination 'name=iPhone 11' -scheme 'StaticTableViewDatasource'
